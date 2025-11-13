@@ -137,7 +137,7 @@ const Sidebars = () => {
       </div>
 
       {/* === Right Social Sidebar === */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-9999 hidden md:flex">
+      {/* <div className="fixed right-6 top-1/2 -translate-y-1/2 z-9999 hidden md:flex">
         <div
           className="w-[70px] h-[280px] rounded-3xl 
           bg-[rgba(15,15,25,0.7)] border border-[rgba(255,255,255,0.15)]
@@ -168,7 +168,7 @@ const Sidebars = () => {
             </a>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* === Bottom Navigation Bar (for Mobile) === */}
       <div

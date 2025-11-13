@@ -19,9 +19,11 @@ const AnimatedCityBg = () => {
         ref={videoRef}
         src="/bg.mp4"
         autoPlay
-        muted
         loop
+        muted
         playsInline
+        disablePictureInPicture
+        controlsList="nodownload noremoteplayback nofullscreen"
         className="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
       />
     </div>

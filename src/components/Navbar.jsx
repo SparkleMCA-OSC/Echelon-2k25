@@ -1,6 +1,5 @@
 import React from "react";
 import GlassTimer from "./GlassTimer";
-import logo from "../assets/sditlogo.jpg";
 
 const Navbar = () => {
   return (

@@ -180,3 +180,31 @@ body {
 .glass-glow {
   animation: glowPulse 3s infinite ease-in-out;
 }
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    letter-spacing: 6px;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 2px;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.4s ease-in-out infinite alternate;
+}

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import AnimatedCityBg from "./components/AnimatedCityBg";
-import Logo from "./assets/thicklogo.png";
 import Sidebars from "./components/Sidebars";
 import Navbar from "./components/Navbar";
 import EventsSection from "./pages/EventSection";
@@ -128,8 +127,11 @@ function App() {
 
   useEffect(() => {
     const imgs = [
-      Logo,
       "/scooter.png",
+      "/thicklogo.png",
+      "/sditlogo.png",
+      "/bg.mp4",
+      
       ...events.map((e) => e.img),
       ...events.map((e) => e.bg),
     ];
@@ -155,7 +157,7 @@ function App() {
           {/* Logo */}
           <div className="flex items-center justify-center">
             <img
-              src={Logo}
+              src={"/thicklogo.png"}
               alt="Logo"
               className="w-[260px] md:w-[380px] rounded-full drop-shadow-2xl"
             />
