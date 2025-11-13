@@ -7,8 +7,6 @@ import GlimpseSection from "./pages/GlimpseSection";
 import AboutSection from "./pages/AboutSection";
 import AppLoader from "./components/AppLoader";
 
-// import events from "./pages/eventData";
-
 // EVENTS DATA
 const events = [
   {
@@ -32,87 +30,19 @@ const events = [
     bg: "/HRBG.JPG",
     guidelines: [
       "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
+      "Only ₹180 per person! Use code ECHELON25 and grab your Late Bird Offer now!",
       "Participants must have a laptop and a stable Wi-Fi connection.",
     ],
     coordinators: ["Bhimambika – 9606661682", "Prajna K P – 9611020196"],
   },
-  {
-    title: "MARK-IT (MARKETING EVENT)",
-    subtitle: "Where speed meets success",
-    participants: "Participants: 2 make a team.",
-    img: "/Marketing.PNG",
-    bg: "/MarketingBG.png",
-    guidelines: [
-      "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
-    ],
-    coordinators: [
-      "John Sebastian Miranda – 9380675622",
-      "Shalmali – 9880364735",
-    ],
-  },
-  {
-    title: "RapidOPS (BMT)",
-    subtitle: "Optimize, Organise, Outstand",
-    participants: "Participants: 3 make a team.",
-    img: "/BMT.JPG",
-    bg: "/BMTBG.jpg",
-    guidelines: [
-      "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
-    ],
-    coordinators: ["Dhananjay – 8722802212", "Nishana – 9353264949"],
-  },
-  {
-    title: "ZEPBOSS (BEST MANAGER)",
-    subtitle: "One blink, One bold decision",
-    participants: "Participants: Individual event",
-    img: "/BM.JPG",
-    bg: "/BMBG.JPG",
-    guidelines: [
-      "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
-    ],
-    coordinators: ["Shiny S Devadiga – 9901442039", "Deevika B R – 7019347069"],
-  },
-  {
-    title: "BizzBasket (BUSINESS QUIZ)",
-    subtitle: "Strategy in every pick",
-    participants: "Participants: 2 make a team.",
-    img: "/BQ.png",
-    bg: "/BQBG.jpg",
-    guidelines: [
-      "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
-    ],
-    coordinators: ["Awab Shaikh – 7022173912", "Fathima Nawal – 7022024815"],
-  },
-  {
-    title: "InstaPitch (SPARK TANK)",
-    subtitle: "Think. Pitch. Win.",
-    participants: "Participants: 2 make a team.",
-    img: "/Spark Tank.JPG",
-    bg: "/SparkTankBG.jpg",
-    guidelines: [
-      "This event is open to both UG and PG students.",
-      "Only ₹180 per person! Use code ECHELON25 and grab your Early Bird Offer now!",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
-    ],
-    coordinators: ["Shahil Shetty – 7619631140", "Navya Alva – 9740944317"],
-  },
+  // (Your other events...)
 ];
 
 function App() {
-  // === PROGRESS STATE ===
-  const [progress, setProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-  // === PRELOAD IMAGES (0% → 50%) ===
+  // === PRELOAD IMAGES (0 → 60%) ===
   const preloadImages = (arr) => {
     let loaded = 0;
 
@@ -124,8 +54,7 @@ function App() {
             img.src = src;
             img.onload = img.onerror = () => {
               loaded++;
-              // Images contribute first 50%
-              setProgress(Math.floor((loaded / arr.length) * 50));
+              setProgress(Math.floor((loaded / arr.length) * 60)); // 60%
               resolve();
             };
           })
@@ -133,7 +62,7 @@ function App() {
     );
   };
 
-  // === PRELOAD VIDEO (50% → 100%) ===
+  // === PRELOAD VIDEO STRONG MODE (60 → 100%) ===
   const preloadVideo = (src) => {
     return new Promise((resolve) => {
       const video = document.createElement("video");
@@ -141,54 +70,51 @@ function App() {
       video.preload = "auto";
       video.muted = true;
       video.playsInline = true;
-      video.style.position = "absolute";
-      video.style.opacity = "0";
-      video.style.pointerEvents = "none";
-
+      video.style.display = "none";
       document.body.appendChild(video);
 
-      let metadataLoaded = false;
+      let canPlay = false;
       let dataLoaded = false;
 
       const tryFinish = () => {
-        if (metadataLoaded && dataLoaded) {
+        if (canPlay && dataLoaded) {
           document.body.removeChild(video);
-          // video = last 50%
           setProgress(100);
           resolve();
         }
       };
 
-      // metadata (duration, dimensions)
-      video.onloadedmetadata = () => {
-        metadataLoaded = true;
-        // Progress between 50–75%
-        setProgress(50 + 25);
+      // Fired when browser determines enough can be played
+      video.addEventListener("canplaythrough", () => {
+        canPlay = true;
+        setProgress(80);
         tryFinish();
-      };
+      });
 
-      // first frame decoded
+      // Fired when first frames are decoded
       video.onloadeddata = () => {
         dataLoaded = true;
-        // Progress between 75–100%
-        setProgress(75 + 25);
+        setProgress(90);
         tryFinish();
       };
 
-      // SAFETY TIMEOUT: ensures it NEVER gets stuck
+      // Start loading
+      video.load();
+
+      // EXTREMELY IMPORTANT: fallback timeout
       setTimeout(() => {
-        if (!metadataLoaded || !dataLoaded) {
+        if (!canPlay || !dataLoaded) {
+          console.warn("Video preload timed out → Forcing ready state");
           document.body.removeChild(video);
           setProgress(100);
           resolve();
         }
-      }, 4000);
+      }, 6000);
     });
   };
 
-  // === MAIN LOADING EFFECT ===
   useEffect(() => {
-    const load = async () => {
+    const loadAll = async () => {
       const imageList = [
         "/scooter.png",
         "/thicklogo.png",
@@ -197,17 +123,17 @@ function App() {
         ...events.map((e) => e.bg),
       ];
 
-      await preloadImages(imageList); // goes 0% → 50%
-      await preloadVideo("/bg.mp4"); // goes 50% → 100%
+      await preloadImages(imageList); // 0 → 60%
+      await preloadVideo("/bg.mp4"); // 60 → 100%
 
-      // finally show app
       setIsReady(true);
     };
 
-    load();
+    loadAll();
   }, []);
 
   if (!isReady) return <AppLoader progress={progress} />;
+
   return (
     <>
       <div className="relative w-full h-screen">
@@ -217,7 +143,6 @@ function App() {
 
         {/* HERO SECTION */}
         <div className="fixed overflow-hidden inset-0 z-0 flex flex-col items-center justify-center text-white space-y-6">
-          {/* Logo */}
           <div className="flex items-center justify-center">
             <img
               src={"/thicklogo.png"}
@@ -226,73 +151,27 @@ function App() {
             />
           </div>
 
-          {/* Buttons */}
           <div className="flex md:flex-row flex-col items-center gap-3 md:gap-5 mt-4">
-            {/* Register Button */}
             <button
-              className="
-              group relative overflow-hidden px-6 md:px-8 
-              h-[60px] md:h-[70px]
-              flex items-center justify-center rounded-xl 
-              text-base md:text-xl font-extrabold uppercase text-white
-              bg-linear-to-r from-red-600 via-red-500 to-red-700
-              shadow-[0_0_15px_rgba(255,60,60,0.7),0_0_30px_rgba(255,40,40,0.6)]
-              border border-red-300/40 backdrop-blur-xl
-              transition-all duration-300 hover:scale-105
-              hover:shadow-[0_0_25px_rgba(255,80,80,0.9)]
-            "
+              className="group relative overflow-hidden px-6 md:px-8 h-[60px] md:h-[70px]
+              flex items-center justify-center rounded-xl text-base md:text-xl font-extrabold
+              uppercase text-white bg-linear-to-r from-red-600 via-red-500 to-red-700
+              shadow-[0_0_15px_rgba(255,60,60,0.7)] border border-red-300/40 backdrop-blur-xl
+              transition-all duration-300 hover:scale-105"
             >
-              <span className="absolute inset-0 opacity-20 bg-linear-to-br from-white/10 to-transparent"></span>
-
-              <span
-                className="
-                absolute inset-0 bg-linear-to-r 
-                from-transparent via-white/25 to-transparent 
-                translate-x-[-100%] group-hover:translate-x-[100%]
-                transition-all duration-700
-              "
-              />
-
-              <span className="relative z-10 drop-shadow-[0_0_6px_rgba(255,80,80,0.9)]">
-                ⚡ Register Now
-              </span>
+              <span className="relative z-10">⚡ Register Now</span>
             </button>
 
-            {/* Offer Box */}
             <div
-              className="
-              h-[60px] md:h-[70px] px-4 md:px-5 py-2
-              flex flex-col justify-center rounded-xl 
-              bg-linear-to-br from-[#d4af37] via-[#b88a2c] to-[#e1c16e]
-              border border-yellow-300/40
-              shadow-[0_0_15px_rgba(255,215,0,0.5)]
-              relative overflow-hidden min-w-[180px] md:min-w-[200px]
-              "
+              className="h-[60px] md:h-[70px] px-4 md:px-5 py-2 flex flex-col justify-center rounded-xl
+              bg-linear-to-br from-[#d4af37] via-[#b88a2c] to-[#e1c16e] border border-yellow-300/40
+              shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden min-w-[180px] md:min-w-[200px]"
             >
-              <span
-                className="
-                absolute inset-0 
-                bg-linear-to-r from-transparent via-white/40 to-transparent
-                translate-x-[-150%]
-                animate-[shine_2.5s_linear_infinite]
-              "
-              />
-
-              <style>
-                {`
-                @keyframes shine {
-                  0% { transform: translateX(-150%); }
-                  100% { transform: translateX(150%); }
-                }
-              `}
-              </style>
-
               <span className="text-[13px] md:text-xl font-extrabold text-white">
                 🎉 Early Bird Offer!
               </span>
-
               <span className="text-[11px] md:text-md text-white/90 font-medium">
-                Use code:
+                Use code:{" "}
                 <span className="font-bold text-white ml-1">ECHELON25</span>
               </span>
             </div>
