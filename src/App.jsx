@@ -6,6 +6,8 @@ import EventsSection from "./pages/EventSection";
 import GlimpseSection from "./pages/GlimpseSection";
 import AboutSection from "./pages/AboutSection";
 import AppLoader from "./components/AppLoader";
+import GlassTimer from "./components/GlassTimer";
+import GlassTimerVertical from "./components/GlassTimerVertical";
 
 // EVENTS DATA
 const events = [
@@ -152,7 +154,26 @@ function App() {
               className="w-[260px] md:w-[380px] rounded-full drop-shadow-2xl"
             />
           </div>
+          {/* Event Date */}
+          <span
+            className="
+            text-sm md:text-lg 
+            font-semibold tracking-wide
+            text-white/90
+            bg-[rgba(255,255,255,0.1)]
+            border border-white/20
+            px-4 py-1.5
+            rounded-full 
+            backdrop-blur-md
+            shadow-[0_0_10px_rgba(255,255,255,0.15)]
+          "
+          >
+            📅 DECEMBER 3rd - 4th 2025
+          </span>
 
+          <div className="md:hidden absolute top-20 ">
+            <GlassTimerVertical targetDate="2025-12-03T09:00:00" />
+          </div>
           <div className="flex md:flex-row flex-col items-center gap-3 md:gap-5 mt-4">
             <button
               className="group relative overflow-hidden px-6 md:px-8 h-[60px] md:h-[70px]
@@ -165,7 +186,20 @@ function App() {
             </button>
 
             <div
-              className="h-[60px] md:h-[70px] px-4 md:px-5 py-2 flex flex-col justify-center rounded-xl
+              className="h-[35px] items-center gap-2 md:h-[70px] px-4 py-2 flex md:hidden flex-row justify-center rounded-xl
+              bg-linear-to-br from-[#d4af37] via-[#b88a2c] to-[#e1c16e] border border-yellow-300/40
+              shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden min-w-[180px] md:min-w-[200px]"
+            >
+              <span className="text-[13px] md:text-xl font-extrabold text-white">
+                🎉 Early Bird Offer!
+              </span>
+              <span className="text-[11px] md:text-md text-white/90 font-medium">
+                Use code:{" "}
+                <span className="font-bold text-white ml-1">ECHELON25</span>
+              </span>
+            </div>
+            <div
+              className="hidden h-[60px] md:h-[70px] px-4 md:px-5 py-2 md:flex flex-col justify-center rounded-xl
               bg-linear-to-br from-[#d4af37] via-[#b88a2c] to-[#e1c16e] border border-yellow-300/40
               shadow-[0_0_15px_rgba(255,215,0,0.5)] relative overflow-hidden min-w-[180px] md:min-w-[200px]"
             >

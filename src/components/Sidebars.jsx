@@ -40,7 +40,7 @@ const navItems = [
   },
   {
     icon: <Users size={22} color="#facc15" />,
-    label: "ABOUT US",
+    label: "ABOUT",
     glow: "rgba(250,204,21,0.6)",
     target: "about",
   },
@@ -137,7 +137,7 @@ const Sidebars = () => {
       </div>
 
       {/* === Right Social Sidebar === */}
-      {/* <div className="fixed right-6 top-1/2 -translate-y-1/2 z-9999 hidden md:flex">
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-9999 hidden md:flex">
         <div
           className="w-[70px] h-[280px] rounded-3xl 
           bg-[rgba(15,15,25,0.7)] border border-[rgba(255,255,255,0.15)]
@@ -168,38 +168,68 @@ const Sidebars = () => {
             </a>
           ))}
         </div>
-      </div> */}
+      </div>
 
-      {/* === Bottom Navigation Bar (for Mobile) === */}
+      {/* === Optimized Bottom Navigation Bar (Mobile) === */}
       <div
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[99999] md:hidden
-        w-[92%] bg-[rgba(15,15,25,0.8)] backdrop-blur-2xl border border-[rgba(255,255,255,0.15)]
-        flex items-center justify-around py-3 rounded-2xl shadow-[0_0_25px_rgba(255,0,255,0.15)]"
+        className="
+    fixed bottom-4 left-1/2 -translate-x-1/2 z-[99999] md:hidden
+    w-[92%]
+    bg-[rgba(15,15,25,0.85)] backdrop-blur-xl 
+    border border-white/10
+    rounded-2xl 
+    shadow-[0_0_25px_rgba(255,0,255,0.12)]
+    px-4 py-3
+  "
       >
-        {navItems.map((item, i) => (
-          <button
-            key={i}
-            onClick={() => scrollToSection(item.target)}
-            className="flex flex-col items-center transition-all duration-300 focus:outline-none"
-            style={{
-              color: item.icon.props.color,
-            }}
-          >
-            <div
-              className="flex items-center justify-center w-10 h-10 rounded-full
-              bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]
-              transition-all duration-300 group-hover:scale-110"
-              style={{
-                boxShadow: `0 0 8px ${item.glow}`,
-              }}
+        {/* Dynamic grid columns based on navItems.length */}
+        <div
+          className="grid place-items-center w-full"
+          style={{
+            gridTemplateColumns: `repeat(${navItems.length}, minmax(0, 1fr))`,
+          }}
+        >
+          {navItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToSection(item.target)}
+              className="
+          flex flex-col items-center gap-1 
+          transition-all duration-300 
+          active:scale-95
+        "
             >
-              {item.icon}
-            </div>
-            <span className="text-[9px] mt-1 font-semibold tracking-wide">
-              {item.label}
-            </span>
-          </button>
-        ))}
+              <div
+                className="
+            flex items-center justify-center
+            w-11 h-11 
+            rounded-xl
+            bg-white/5 
+            border border-white/10
+            transition-all duration-300
+          "
+                style={{
+                  color: item.icon.props.color,
+                  boxShadow: `0 0 10px ${item.glow}`,
+                }}
+              >
+                {item.icon}
+              </div>
+
+              <span
+                className="
+                text-[8px] sm:text-[10px] 
+                font-semibold text-white/80 tracking-wide 
+                leading-2.5 text-center
+                wrap-break-word
+  "
+                style={{ maxWidth: "55px" }} // IMPORTANT so long words break!
+              >
+                {item.label}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
     </>
   );
