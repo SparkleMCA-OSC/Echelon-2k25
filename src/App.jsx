@@ -218,6 +218,7 @@ function App() {
               <span className="text-[11px] md:text-md text-white/90 font-medium">
                 Use code:{" "}
                 <span className="font-bold text-white ml-1">ECHELON25</span>
+                
               </span>
             </div>
             <div
@@ -236,6 +237,7 @@ function App() {
               <span className="text-[11px] md:text-md text-white/90 font-medium">
                 Use code:{" "}
                 <span className="font-bold text-white ml-1">ECHELON25</span>
+                 <span className="font-light text-red-700 ml-1">[valid till 30th Dec]</span>
               </span>
             </div>
           </div>

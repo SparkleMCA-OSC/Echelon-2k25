@@ -89,7 +89,7 @@ const events = [
       "₹180 per participant! Use code ECHELON25 and grab the early bird offer now.",
       "Participants must have a laptop and a stable Wi-Fi connection.",
     ],
-    coordinators: ["Awab Shaikh – 7022173912", "Fathima Nawal – 7022024815"],
+    coordinators: ["Awab Shaikh – 7022173912", "Ananya G – 8310243369"],
   },
   {
     title: "InstaPitch (SPARK TANK)",
