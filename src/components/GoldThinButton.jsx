@@ -1,3 +1,4 @@
+import { ArrowRightCircle } from "lucide-react";
 import React from "react";
 
 const GoldenButton = () => {
@@ -7,12 +8,14 @@ const GoldenButton = () => {
         relative group
         overflow-hidden 
         inline-flex 
+        w-[90%]
+        md:w-[500px]
         items-center 
         justify-center
         px-5 md:px-7 
         py-2.5 md:py-3
-        text-xs sm:text-sm md:text-base
-        font-semibold
+        text-xl sm:text-sm md:text-2xl
+        font-bold
         text-neutral-900
         bg-linear-to-r 
         from-yellow-300 
@@ -46,7 +49,9 @@ const GoldenButton = () => {
         "
       ></span>
 
-      <span className="relative z-10 tracking-wide">Cultural Events →</span>
+      <span className="relative flex items-center gap-5 z-10 tracking-wide">
+        Cultural Events <ArrowRightCircle />
+      </span>
     </button>
   );
 };

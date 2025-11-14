@@ -260,8 +260,6 @@ export default function EventSection() {
           />
 
           <EventCircle ev={events[3]} onClick={() => setSelected(events[3])} />
-
-          <GoldenButton />
         </motion.div>
 
         {/* RIGHT COLUMN */}
@@ -283,6 +281,7 @@ export default function EventSection() {
           <EventModal event={selected} onClose={() => setSelected(null)} />
         )}
       </AnimatePresence>
+      <GoldenButton />
     </div>
   );
 }
