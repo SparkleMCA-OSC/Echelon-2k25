@@ -31,8 +31,8 @@ const RulesSection = () => {
     "Registration fee: ₹180 per participant. (Register on or before Nov 30th to get Early Bird discount of ₹150)",
     "Participants should carry laptop, calculator, net setter, pen drive etc.",
     "The organisers will not be liable for the provision of any items.",
-    "Judges' & organizers' decision will be final and binding.",
-    "Teams using unfair means will be disqualified.",
+    "Judges & organizers decision will be final and binding.",
+    "Teams using unfair means shall be disqualified.",
     "Participants must use the college code allotted by the Echelon team.",
   ];
 
@@ -44,8 +44,8 @@ const RulesSection = () => {
     "2 events → ₹200 (Pearl Access)",
     "3 events → ₹250 (Aurora Access)",
     "4 events → ₹300 (Trident Access)",
-    "Judges' & organizers' decision will be final and binding.",
-    "Teams using unfair means will be disqualified.",
+    "Judges & organizers decision will be final and binding.",
+    "Teams using unfair means shall be disqualified.",
     "Participants must use the college code allotted by the Echelon team.",
   ];
 

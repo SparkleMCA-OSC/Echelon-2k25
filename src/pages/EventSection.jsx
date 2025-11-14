@@ -74,7 +74,7 @@ const events = [
     guidelines: [
       "This event is open to both UG and PG students.",
       "₹180 per participant! Use code ECHELON25 and grab the early bird offer now.",
-      "Participants must have a laptop and a stable Wi-Fi connection.",
+      "Participant must have a laptop and a stable Wi-Fi connection.",
     ],
     coordinators: ["Shiny S Devadiga – 9901442039", "Deevika B R – 7019347069"],
   },

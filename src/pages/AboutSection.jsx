@@ -74,7 +74,7 @@ export default function AboutSection() {
           className="text-lg leading-relaxed text-blue-100"
         >
           {" "}
-          Echelon25 is the flagship management fest of the Department of Master
+          Echelon 25 is the flagship management fest of the Department of Master
           of Business Administration, bringing together aspiring managers,
           thinkers, and innovators from various institutions to showcase their
           managerial brilliance. The fest embodies creativity, competition, and
