@@ -130,7 +130,7 @@ function App() {
       ];
 
       await preloadImages(imageList); // 0 → 60%
-      await preloadVideo("/bg.mp4"); // 60 → 100%
+      await preloadVideo("/video.mp4"); // 60 → 100%
 
       setIsReady(true);
     };
