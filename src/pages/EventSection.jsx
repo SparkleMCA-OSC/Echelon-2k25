@@ -107,7 +107,7 @@ const events = [
 ];
 
 // ANIMATION VARIANTS
-const leftVariants = {  
+const leftVariants = {
   hidden: { opacity: 0, x: -150 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
 };
@@ -417,9 +417,14 @@ function EventModal({ event, onClose }) {
           {/* SCROLLABLE CONTENT */}
           <div
             className="
-              mt-6 max-h-50 overflow-y-auto pr-2
+              mt-6 
+              max-h-50
+              overflow-y-auto 
+              pr-2
               custom-scrollbar
             "
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
           >
             {/* GUIDELINES */}
             <h3 className="font-semibold text-xl mb-2">Guidelines:</h3>
@@ -490,7 +495,9 @@ function EventModal({ event, onClose }) {
             whileHover={{ scale: 1.05 }}
             className="
               mt-8 px-6 py-3 w-full 
-              rounded-lg bg-red-600 hover:bg-red-700 
+              rounded-lg bg-linear-to-r from-red-600 via-red-500 to-red-700
+              shadow-[0_0_15px_rgba(255,60,60,0.7)] border border-red-300/40 backdrop-blur-xl
+              transition-all duration-300 hover:scale-105
               font-bold tracking-wide text-center
             "
           >
