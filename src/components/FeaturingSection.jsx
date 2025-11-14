@@ -20,9 +20,25 @@ export default function FeaturingSection() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full pt-10 pb-20">
+    <div className="flex flex-col items-center w-full pt-10 pb-20 relative">
       {/* TITLE */}
-      
+      {/* BACKGROUND TEXT */}
+      <h1
+        className="
+            absolute 
+            md:-top-20 
+            top-5
+            left-1/2 -translate-x-1/2
+            text-[50px] md:text-[180px] 
+            font-extrabold 
+            tracking-widest
+            text-white/5 
+            select-none 
+            pointer-events-none
+  "
+      >
+        FEATURING
+      </h1>
       <motion.h2
         variants={fadeUp}
         initial="hidden"

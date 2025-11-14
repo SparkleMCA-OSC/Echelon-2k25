@@ -25,7 +25,7 @@ export default function AboutSection() {
   return (
     <div
       id="about"
-      className="w-full min-h-screen shadow-2xl pt-30 px-6 py-14 md:px-20 flex flex-col gap-20 z-100"
+      className="w-full min-h-screen shadow-2xl pt-30 px-6 py-14 md:px-20 flex flex-col gap-20 z-100 relative"
       style={{
         background:
           "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.25), transparent 70%), #000000",
@@ -35,6 +35,24 @@ export default function AboutSection() {
       {/* ================================
           ⭐ ABOUT SECTION (your original)
       ================================= */}
+      {/* BACKGROUND TEXT */}
+      <span
+        className="
+        absolute 
+        md:top-1/2 md:-translate-y-1/3 
+        top-1/2 -translate-y-35
+        left-1/2 -translate-x-1/2
+        text-[80px] md:text-[200px]
+        font-extrabold 
+        uppercase 
+        tracking-widest
+        text-white/5 
+        select-none 
+        pointer-events-none
+  "
+      >
+        ABOUT
+      </span>
       <motion.h1
         variants={fadeUp}
         initial="hidden"
