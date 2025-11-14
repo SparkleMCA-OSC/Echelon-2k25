@@ -6,13 +6,13 @@ const GlimpseSection = () => {
   const items = [
     { image: "Glimpse1.JPG" },
     { image: "Glimpse2.JPG" },
-    // { image: "Glimpse3.JPG" },
+    { image: "Glimpse3.heic" },
     { image: "Glimpse4.JPG" },
     { image: "Glimpse5.JPG" },
     { image: "Glimpse6.JPG" },
     { image: "Glimpse7.JPG" },
     { image: "Glimpse8.jpg" },
-    // { image: "Glimpse9.JPG" },
+    { image: "Glimpse9.jpeg" },
     { image: "Glimpse10.JPG" },
     { image: "Glimpse11.JPG" },
   ];

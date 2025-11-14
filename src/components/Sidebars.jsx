@@ -62,28 +62,24 @@ const navItems = [
 // === Social Icons (with proper brand colors) ===
 const socialItems = [
   {
-    // Globe (use a neutral blue)
-    icon: <Globe size={22} color="rgb(0, 249, 246)" />,
-    glow: "rgba(0,149,246,0.6)",
-    link: "#",
+    icon: <Globe color="rgb(0, 249, 246)" size={20} />,
+    glow: "rgba(255,119,233,0.7)",
+    link: "https://sdit.ac.in/",
   },
   {
-    // Instagram gradient base pink
-    icon: <Instagram size={22} color="rgb(225,48,108)" />,
-    glow: "rgba(225,48,108,0.6)",
-    link: "#",
+    icon: <Instagram color="#ff77e9" size={20} />,
+    glow: "rgba(255,119,233,0.7)",
+    link: "https://www.instagram.com/sdit_mba_echelon25/",
   },
   {
-    // Facebook blue
-    icon: <Facebook size={22} color="rgb(24,119,242)" />,
-    glow: "rgba(24,119,242,0.6)",
-    link: "#",
+    icon: <Facebook color="#6cb8ff" size={20} />,
+    glow: "rgba(108,184,255,0.7)",
+    link: "https://www.facebook.com/SDITMBA/",
   },
   {
-    // LinkedIn blue
-    icon: <Linkedin size={22} color="rgb(10,202,194)" />,
-    glow: "rgba(10,102,194,0.6)",
-    link: "#",
+    icon: <Linkedin color="#7dceff" size={20} />,
+    glow: "rgba(125,206,255,0.7)",
+    link: "https://www.linkedin.com/company/shree-devi-institute-of-technology-mba-department/",
   },
 ];
 

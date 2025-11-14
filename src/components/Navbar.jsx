@@ -44,7 +44,7 @@ const Navbar = () => {
       </div>
 
       <div className="md:flex items-center hidden ">
-        <GlassTimer targetDate="2025-11-30T23:59:59" />
+        <GlassTimer targetDate="2025-12-03T09:00:00" />
       </div>
     </div>
   );

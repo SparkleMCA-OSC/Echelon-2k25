@@ -14,12 +14,12 @@ export default function Footer() {
     {
       icon: <Globe color="rgb(0, 249, 246)" size={20} />,
       glow: "rgba(255,119,233,0.7)",
-      link: "https://www.instagram.com/echelon_2025/",
+      link: "https://sdit.ac.in/",
     },
     {
       icon: <Instagram color="#ff77e9" size={20} />,
       glow: "rgba(255,119,233,0.7)",
-      link: "https://www.instagram.com/sdit_mba_official/",
+      link: "https://www.instagram.com/sdit_mba_echelon25/",
     },
     {
       icon: <Facebook color="#6cb8ff" size={20} />,
@@ -35,7 +35,10 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="w-full bg-[#0b0b15] text-white pt-12 pb-6 border-t border-white/10 relative">
+      <footer
+        id="contact"
+        className="w-full bg-[#0b0b15] text-white pt-12 pb-6 border-t border-white/10 relative"
+      >
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* === COLLEGE DETAILS === */}
           <div>
@@ -53,7 +56,7 @@ export default function Footer() {
             <div
               className="
                 mt-5
-                w-full md:w-auto
+                w-fit
                 flex items-center justify-start gap-4
                 bg-[rgba(15,15,25,0.7)]
                 border border-[rgba(255,255,255,0.15)]

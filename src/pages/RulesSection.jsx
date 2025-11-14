@@ -7,7 +7,7 @@ const sectionTitle = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.7 },
+    transition: { duration: 0.4 }, // faster
   },
 };
 
@@ -18,8 +18,8 @@ const cardVariant = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.6,
-      delay: i * 0.15,
+      duration: 0.35,
+      delay: i * 0.08,
     },
   }),
 };
