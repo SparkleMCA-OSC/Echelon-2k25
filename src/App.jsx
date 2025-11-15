@@ -197,15 +197,21 @@ function App() {
           </span>
 
           <div className="flex md:flex-row flex-col items-center justify-center gap-3 md:gap-5 mt-4">
-            <button
-              className="group relative overflow-hidden -mt-7 px-6 md:px-8 h-[60px] md:h-[70px]
+            <a
+              href="https://konfhub.com/echelon-2k25"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button
+                className="group relative overflow-hidden -mt-7 px-6 md:px-8 h-[60px] md:h-[70px]
               flex items-center justify-center rounded-xl text-base md:text-xl font-extrabold
               uppercase text-white bg-linear-to-r from-red-600 via-red-500 to-red-700
               shadow-[0_0_15px_rgba(255,60,60,0.7)] border border-red-300/40 backdrop-blur-xl
               transition-all duration-300 hover:scale-105"
-            >
-              <span className="relative z-10">⚡ Register Now</span>
-            </button>
+              >
+                <span className="relative z-10">⚡ Register Now</span>
+              </button>
+            </a>
 
             <div
               className="
@@ -235,9 +241,9 @@ function App() {
               {/* VALID TILL — centered below */}
               <span
                 className="
-      absolute bottom-0.5 left-1/2 -translate-x-1/2 
-      text-[9px] font-semibold text-red-800
-    "
+                absolute bottom-0.5 left-1/2 -translate-x-1/2 
+                text-[9px] font-semibold text-red-800
+              "
               >
                 ⏳ valid till 30 Nov
               </span>

@@ -490,19 +490,25 @@ function EventModal({ event, onClose }) {
           </div>
 
           {/* REGISTER BUTTON */}
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05 }}
-            className="
+          <a
+            href="https://konfhub.com/echelon-2k25"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              className="
               mt-8 px-6 py-3 w-full 
               rounded-lg bg-linear-to-r from-red-600 via-red-500 to-red-700
               shadow-[0_0_15px_rgba(255,60,60,0.7)] border border-red-300/40 backdrop-blur-xl
               transition-all duration-300 hover:scale-105
               font-bold tracking-wide text-center
             "
-          >
-            Register
-          </motion.button>
+            >
+              Register
+            </motion.button>
+          </a>
         </motion.div>
       </motion.div>
     </motion.div>
